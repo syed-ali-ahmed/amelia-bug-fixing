@@ -33,6 +33,11 @@ if ( ! class_exists( 'ABF_Init' ) ) {
 		 * A function use to include dependencies.
 		 */
 		protected function required_files() {
+			/**
+			 * Module Name: Fill fields automatically.
+			 * Description: If user already exist so fill his fields automatically.
+			 */
+			abf_required_file( 'includes/classes/class-abf-persist-preference' );
 		}
 
 		/**
@@ -47,6 +52,7 @@ if ( ! class_exists( 'ABF_Init' ) ) {
 		 */
 		protected function add_actions() {
 			add_action( 'wp_enqueue_editor', array( $this, 'wp_enqueue_scripts' ) );
+			add_action( 'admin_init', array( 'ABF_Persist_Preference', 'admin_init' ) );
 		}
 
 		/**
