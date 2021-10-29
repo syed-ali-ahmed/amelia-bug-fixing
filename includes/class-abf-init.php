@@ -44,15 +44,20 @@ if ( ! class_exists( 'ABF_Init' ) ) {
 		 * A function use to link styles & scripts.
 		 */
 		public function wp_enqueue_scripts() {
-
+			wp_enqueue_script( ABF_PREFIX . '-module-persist-preference', ABF_DIR_URL . 'assets/js/persist-preference.js', array( 'jquery' ), ABF_VERSION, true );
+			wp_localize_script( ABF_PREFIX . '-module-persist-preference', 'abf_object', array(
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			) );
 		}
 
 		/**
 		 * A function use to register action hooks.
 		 */
 		protected function add_actions() {
-			add_action( 'wp_enqueue_editor', array( $this, 'wp_enqueue_scripts' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 			add_action( 'admin_init', array( 'ABF_Persist_Preference', 'admin_init' ) );
+			add_action( 'wp_ajax_abf_ajax', array( 'ABF_Persist_Preference', 'abf_ajax' ) );
+			add_action( 'wp_ajax_nopriv_abf_ajax', array( 'ABF_Persist_Preference', 'abf_ajax' ) );
 		}
 
 		/**

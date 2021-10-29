@@ -14,8 +14,8 @@
 defined( 'ABSPATH' ) || exit;
 
 define( 'ABF_DIR_PATH', plugin_dir_path( __FILE__ ) );
-define( 'MBF_DIR_URL', plugin_dir_url( __FILE__ ) );
-define( 'MBF_VERSION', '1.0' );
+define( 'ABF_DIR_URL', plugin_dir_url( __FILE__ ) );
+define( 'ABF_VERSION', '1.0' );
 define( 'ABF_PREFIX', 'abf-' );
 
 if ( file_exists( ABF_DIR_PATH . 'includes/class-abf-init.php' ) ) {
