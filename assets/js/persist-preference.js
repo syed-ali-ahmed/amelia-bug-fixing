@@ -47,4 +47,26 @@
             }
         }, 1000 );
     }
+
+    let vue_loader_ii = setInterval( function(){
+        if ( $( '.am-appointment-header' ).length ) {
+            console.log( 'Am Appointment Header loaded' )
+            let appointment_header = $( '.am-appointment-header' ),
+                children           = $( appointment_header ).children(),
+                cp_head            = children[ children.length -1 ];
+            $( cp_head ).css( 'display', 'none' );
+            clearInterval( vue_loader_ii );
+        }
+    }, 1000 );
+
+    let vue_loader_iii = setInterval( function(){
+        if ( $( '.am-appointment-body' ).length ) {
+            console.log( 'Am Appointment Header loaded' )
+            let appointment_header = $( '.am-appointment-body' ),
+                children           = $( appointment_header ).children(),
+                cp_head            = children[ children.length -1 ];
+            $( cp_head ).css( 'display', 'none' );
+            clearInterval( vue_loader_iii );
+        }
+    }, 1000 );
 }( jQuery, window, document ) );

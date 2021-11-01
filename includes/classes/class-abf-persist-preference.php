@@ -15,7 +15,7 @@ if ( ! class_exists( 'ABF_Persist_Preference' ) ) {
 	class ABF_Persist_Preference {
 
 		/**
-		 * A function use to create instance of our plugin.
+		 * A variable use to create instance of our plugin.
 		 *
 		 * @var null
 		 */
